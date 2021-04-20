@@ -1,23 +1,57 @@
 <div class="overlay">
 
-<header class="text-gray-600 body-font bg-white">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a class="flex title-font font-medium items-center text-black mb-4 md:mb-0" href="/">
-            <img class="logo" src="images/logo.png" alt="Logo" />
-            <span class="ml-3 text-xl">Code World</span>
-        </a>
-        <nav class="md:ml-auto flex flex-wrap items-center text-black text-base justify-center">
-            <a href="/" id="home" class="mr-5 hover:text-gray-900">Home</a>
-            <a href="tutorials.php" id="tutorials" class="mr-5 hover:text-gray-900">Tutorials</a>
-            <a href="projects.php" id="projects" class="mr-5 hover:text-gray-900">Projects</a>
-            <a href="contact.php" id="contact" class="mr-5 hover:text-gray-900">About & Contact</a>
-        </nav>
-        <div class="dark-mode-switch">
+    <header class="text-gray-600 body-font bg-white">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-black mb-4 md:mb-0" href="/">
+                <img class="logo" src="images/logo.png" alt="Logo" />
+                <span class="ml-3 text-xl">Code World</span>
+            </a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-black text-base justify-center">
+                <a href="/" id="home" class="mr-5 hover:text-gray-900">Home</a>
+                <a href="tutorials.php" id="tutorials" class="mr-5 hover:text-gray-900">Tutorials</a>
+                <a href="projects.php" id="projects" class="mr-5 hover:text-gray-900">Projects</a>
+                <a href="contact.php" id="contact" class="mr-5 hover:text-gray-900">About & Contact</a>
+            </nav>
+            <div>
+                <a href="<?php 
+                echo $buttonlglink;
+                ?>
+                ">
+                    <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+                        <?php 
+                        echo $buttonlg;
+                        ?>
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </button></a>
+            </div>
+            <div class="dark-mode-switch">
 
-            <input id="dark-mode" type="checkbox" onclick="document.documentElement.classList.toggle('dark-mode')">
-            <label for="dark-mode"></label>
+                <input id="dark-mode" type="checkbox" onclick="document.documentElement.classList.toggle('dark-mode'),modefun()">
+                <label for="dark-mode"></label>
 
+            </div>
         </div>
-    </div>
-</header>
-<hr bg-gray-300> 
+    </header>
+    <script type="text/javascript">
+    function modefun(){
+        var elmt = document.getElementById('dark-mode');
+        var value = elmt.checked;
+        if (value==true){
+            sessionStorage.setItem("mode", 'dark');
+        }else{
+            sessionStorage.setItem("mode", 'light');  
+        }
+        console.log("inside",sessionStorage.getItem("mode"));
+    }
+    var mode = sessionStorage.getItem("mode");
+    console.log("outside",mode);
+    if (mode=='dark'){
+        document.getElementById('dark-mode').click();
+    }else{
+        sessionStorage.setItem("mode", 'light');
+    }
+    </script>
+    <hr bg-gray-300>

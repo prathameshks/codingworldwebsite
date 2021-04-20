@@ -1,53 +1,60 @@
-. {
+.{
     padding: 0;
     margin: 0;
 }
 
-header,footer {
+header,
+footer {
     opacity: 0.7;
 }
+
 .logo {
     height: 35px;
     width: 35px;
 }
-html { 
-  background: url(../images/bgday.svg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  
-  
+
+html {
+    background: url(../images/bgday.svg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
+
+
 
 .overlay {
-    background-color: rgba(255, 255, 255, 0.7);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 1;
+    background-color: rgba(209, 209, 209, 0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
 }
-.sectionopacity{
-    background-image: linear-gradient(45deg,rgb(255,255,255) 30%,#ffffff 90%);
-padding: 0 2%;
+
+.sectionopacity {
+    background-image: linear-gradient(45deg, rgb(255, 255, 255) 30%, #ffffff 90%);
+    padding: 0 2%;
     border-radius: 10px;
-    margin: 10% 10%;
-color: #fff;
-opacity: 0.6;
+    margin: 7% 10%;
+    color: rgb(224, 224, 224);
+    opacity: 0.6;
 }
+
 html.dark-mode {
     filter: invert(100%)
-   
 }
-html.dark-mode {
-    background: url(../images/bgnight.svg) no-repeat center center fixed; 
 
+html.dark-mode {
+    background: url(../images/bgnight.svg) no-repeat center center fixed;
+    background-size: cover;
 }
+
 html.dark-mode img {
     filter: invert(100%);
 }
+
 html.dark-mode .leavethis {
     filter: invert(100%);
 }
@@ -59,6 +66,7 @@ html.dark-mode .bg-white {
 html.dark-mode .dark-mode-switch {
     filter: invert(100%)
 }
+
 .dark-mode-switch {
     /*position: fixed;*/
     right: 1rem;
@@ -68,7 +76,7 @@ html.dark-mode .dark-mode-switch {
 
 #dark-mode {
     -webkit-appearance: none;
-    -moz-appearance:none;
+    -moz-appearance: none;
     position: relative;
     width: 60px;
     height: 30px;
@@ -100,11 +108,15 @@ html.dark-mode .dark-mode-switch {
     background-image: url(../images/night.jpg);
     background-position: left;
     transition: background-image .90s;
-
 }
 
 #dark-mode:checked:before {
     transform: translate(100%);
     transition: all .9s;
     background-color: #ECF0F3;
+}
+
+.logoalert{
+    height: auto;
+    width: 10%;
 }
