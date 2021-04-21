@@ -12,7 +12,7 @@ if (mysqli_connect_errno()) {
   header('location:login.php');
   exit();
 }
-
+$_SESSION['openform']='login';
 if(isset($_POST['lmail'])){
     $lmail= $_POST['lmail'];
     $lpass= $_POST['lpass'];
@@ -28,11 +28,11 @@ if(isset($_POST['lmail'])){
         $pw= $data[3];
         if($lpass==$pw){
             $_SESSION['status']='loggedin';
-            $_SESSION['usertype']= $data[4];
-            $_SESSION['tstamp']= $data[5];
-            $_SESSION['userid']= $data[0];
-            $_SESSION['name']= $data[1];
-            $_SESSION['email']= $data[2];
+            $_SESSION['userid']= $data['userid'];
+            $_SESSION['name']= $data['name'];
+            $_SESSION['email']= $data['email'];
+            $_SESSION['usertype']= $data['usertype'];
+            $_SESSION['tstamp']= $data['timestamp'];
             header('location:/');
         }else{
             $_SESSION['status']='wrongpw';
@@ -46,7 +46,5 @@ if(isset($_POST['lmail'])){
     $_SESSION['status']= "wrongway";
     header('location:login.php');
 };
-
-
 
 ?>

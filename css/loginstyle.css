@@ -209,3 +209,47 @@
     }
     
   
+    [tooltip-title] {
+      /* base style for the element */
+      position: relative;
+      cursor: pointer;
+    }
+
+    [tooltip-title]::after {
+
+      /* Takes the content from tooltip-title attribute */
+      content: attr(tooltip-title);
+
+      /* should be hidden initially */
+      opacity: 0;
+
+      /* basic styling tooltip */
+      background: #222;
+      border-radius: 4px;
+      color: #fff;
+      margin-bottom: 12px;
+      padding: 0.5em 1em;
+      white-space: nowrap;
+      z-index: 10;
+
+      /* Positioning tooltip */
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+
+      /* Basic effects on tooltip */
+      transition: all 0.2s ease-out 0.2s;
+      transform: translate(-50%, 10px);
+      transform-origin: top;
+
+    }
+
+    [tooltip-title]:hover::after {
+      /* Making it visible on hover */
+      opacity: 1;
+    }
+
+    [tooltip-title]:hover::after {
+      /* Effects on hover */
+      transform: translate(-50%, 0);
+    }
