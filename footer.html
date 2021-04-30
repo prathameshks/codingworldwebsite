@@ -32,18 +32,32 @@
           <a href="/tutorials.php">
         <h2 class="title-font font-medium text-black tracking-widest text-sm mb-3">TUTORIALS</h2></a>
         <nav class="list-none mb-10">
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">First Link</a>
+          <?php
+$con = mysqli_connect("localhost","root","","userdata");
+// Check connection
+if (mysqli_connect_errno()) {
+    echo '<a href="tutorials.php" id="tutorials" class="mr-5 hover:text-gray-900">Tutorials</a>';
+}else{
+    $sqlqueryt = "SELECT DISTINCT `vcourse` FROM `video`;";
+    $resultt = mysqli_query($con,$sqlqueryt);
+    
+    if (mysqli_num_rows($resultt) <1){
+    echo '<a href="tutorials.php" id="tutorials" class="mr-5 hover:text-gray-900">Tutorials</a>';
+    }else{
+        $rows = mysqli_fetch_all($resultt);
+        
+        foreach($rows as $row){
+            $content = $row[0];
+            ?>
+            <li>
+            <a href="/tutorials.php?course=<?php echo $content;?>" class="text-gray-600 hover:text-gray-800"><?=ucwords($content);?></a>
           </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-          </li>
+        <?php
+        };
+        
+    }
+}
+?>
         </nav>
       </div>
       <div class="lg:w-1/4 md:w-1/2 w-full px-4">

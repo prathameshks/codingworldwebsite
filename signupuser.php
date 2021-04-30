@@ -25,18 +25,14 @@ if(isset($_POST['semail'])){
     $sqlinsert = "INSERT INTO `userdata`(`name`, `email`, `pass`) VALUES ('$sname','$semail','$spass')";
     $query=mysqli_query($con,$sqlinsert);
     $_SESSION['supstatus']= "signupsucess";
-    echo '<script>sessionStorage.setItem("openform", "login");</script>';
     header('location:login.php');
 }else{
     $_SESSION['supstatus']= "alreadyuser";
-    echo '<!DOCTYPE html><html lang="en"><head><title>Login</title></head><body>
-    <script>sessionStorage.setItem("openform", "login");</script></body></html>';
+    
     header('location:login.php');
 }  
 }else{
     $_SESSION['supstatus']= "wrongway";
-    echo '<!DOCTYPE html><html lang="en"><head><title>Login</title></head><body>
-    <script>sessionStorage.setItem("openform", "signup");</script></body></html>';
     header('location:login.php');
 }
 ?>

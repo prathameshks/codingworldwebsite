@@ -5,7 +5,10 @@ session_start();
 //userdata insert
 //$sql = "INSERT INTO `userdata`(`name`, `email`, `pass`, `usertype`) VALUES (\'admin_name\',\'admin@codeworld\',\'admin\',1)";
 
-$con = mysqli_connect("localhost","root","","userdata");
+//CREATE TABLE `userdata`.`video` ( `vid` INT NOT NULL AUTO_INCREMENT , `vcourse` VARCHAR(100) NOT NULL , `vtitle` VARCHAR(100) NOT NULL , `vdesc` TEXT NOT NULL , `vdate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`vid`)) ENGINE = InnoDB;
+//google api key AIzaSyA8ljSq8FzLj93qoVhSQ-awHxcM7VSE_JE
+// https://www.googleapis.com/youtube/v3/videos?id=jwuDebBIUFg&key=AIzaSyA8ljSq8FzLj93qoVhSQ-awHxcM7VSE_JE&part=snippet
+include('php/db.php');
 // Check connection
 if (mysqli_connect_errno()) {
   $_SESSION['status']= "confail";
@@ -16,7 +19,7 @@ $_SESSION['openform']='login';
 if(isset($_POST['lmail'])){
     $lmail= $_POST['lmail'];
     $lpass= $_POST['lpass'];
-    $sql = "SELECT `userid`, `name`, `email`, `pass`, `usertype`, `timestamp` FROM `userdata` WHERE `email`='$lmail';";
+    $sql = "SELECT * FROM `userdata` WHERE `email`='$lmail';";
     // echo $sql;
     $query = mysqli_query($con,$sql);
     $numrow= mysqli_num_rows($query);
@@ -24,14 +27,17 @@ if(isset($_POST['lmail'])){
         $_SESSION['status']='nouser';
         header('location:login.php');
     }elseif($numrow==1){
-        $data= mysqli_fetch_row($query);
-        $pw= $data[3];
+        $data= mysqli_fetch_array($query);
+        $pw= $data['pass'];
+        // echo $data['gender'];
         if($lpass==$pw){
             $_SESSION['status']='loggedin';
             $_SESSION['userid']= $data['userid'];
             $_SESSION['name']= $data['name'];
             $_SESSION['email']= $data['email'];
+            $_SESSION['pass']= $data['pass'];
             $_SESSION['usertype']= $data['usertype'];
+            $_SESSION['gender']= $data['gender'];
             $_SESSION['tstamp']= $data['timestamp'];
             header('location:/');
         }else{

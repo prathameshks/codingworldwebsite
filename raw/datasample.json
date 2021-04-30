@@ -1,0 +1,61 @@
+{
+    "kind": "youtube#videoListResponse",
+    "etag": "9SLTproh52xOgH_XUCn7b-HJ0EY",
+    "items": [
+        {
+            "kind": "youtube#video",
+            "etag": "ggs38V1kkbqFKD-YbNg3tzo2pTs",
+            "id": "jwuDebBIUFg",
+            "snippet": {
+                "publishedAt": "2020-09-22T14:36:48Z",
+                "channelId": "UCJIXkg2UUvpqcIOe0AP55zw",
+                "title": "Getting Started with python basics",
+                "description": "Hello Guys,\nThis is the first video of Python-3 Tutorials. In this Video we will learn Basics of python like how to code open what is in it names of different components any much more you must know before programming.\nAs promised here is link to PDF of this section:\nhttps://drive.google.com/file/d/1UnrIr2Suadl8nCTvtAmb8T2ufGW0zTs6/view?usp=drivesdk\nJust go and read it .\n\nLink of PDF of All Tutorials: \nhttps://drive.google.com/file/d/1UnrIr2Suadl8nCTvtAmb8T2ufGW0zTs6/view?usp=sharing\n\nIt will definitely help you a lot in upcoming sections.\n\nEnjoy the Tutorials…\n\nAnd don’t forget to subscribe to “Code Academy '' Youtube Channel and also hit the Like button.\nThank you guys.\n\n\n\n\n©Copyright Prathamesh Sable\n#Code_Academy #Python_toturials #Python_basic #getting_started_with_python #learn_python_basic",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/jwuDebBIUFg/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/jwuDebBIUFg/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/jwuDebBIUFg/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/jwuDebBIUFg/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/jwuDebBIUFg/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Code Academy",
+                "tags": [
+                    "coading academy",
+                    "python 3 tutorials",
+                    "getting started with python",
+                    "python basic"
+                ],
+                "categoryId": "27",
+                "liveBroadcastContent": "none",
+                "localized": {
+                    "title": "Getting Started with python basics",
+                    "description": "Hello Guys,\nThis is the first video of Python-3 Tutorials. In this Video we will learn Basics of python like how to code open what is in it names of different components any much more you must know before programming.\nAs promised here is link to PDF of this section:\nhttps://drive.google.com/file/d/1UnrIr2Suadl8nCTvtAmb8T2ufGW0zTs6/view?usp=drivesdk\nJust go and read it .\n\nLink of PDF of All Tutorials: \nhttps://drive.google.com/file/d/1UnrIr2Suadl8nCTvtAmb8T2ufGW0zTs6/view?usp=sharing\n\nIt will definitely help you a lot in upcoming sections.\n\nEnjoy the Tutorials…\n\nAnd don’t forget to subscribe to “Code Academy '' Youtube Channel and also hit the Like button.\nThank you guys.\n\n\n\n\n©Copyright Prathamesh Sable\n#Code_Academy #Python_toturials #Python_basic #getting_started_with_python #learn_python_basic"
+                }
+            }
+        }
+    ],
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 1
+    }
+}

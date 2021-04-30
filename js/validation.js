@@ -1,6 +1,18 @@
 
 function check() {
-  if (document.getElementById('password').value == document.getElementById('confirm_password').value) {
+  if ((document.getElementById('password').value).length > 15) {
+  document.getElementById('submit').disabled = true;
+  document.getElementById('validmessage').style.color = 'red';
+  document.getElementById('validmessage').innerHTML = '❌';
+  document.getElementById('passdiv').setAttribute('tooltip-title', "Password should not be greater than 15 characters");
+  var gc = false;
+}else if ((document.getElementById('password').value).length < 8) {
+  document.getElementById('submit').disabled = true;
+  document.getElementById('validmessage').style.color = 'red';
+  document.getElementById('validmessage').innerHTML = '❌';
+  document.getElementById('passdiv').setAttribute('tooltip-title', "Password should not be less than 8 characters");
+  var lc = false;
+}else if ((document.getElementById('password').value == document.getElementById('confirm_password').value)) {
     document.getElementById('submit').disabled = false;
     document.getElementById('matchmessage').style.color = 'green';
     document.getElementById('matchmessage').innerHTML = '✔';

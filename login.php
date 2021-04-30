@@ -24,80 +24,110 @@ include('php/whichbtn.php');
   <?php include('header.html'); ?>
   <br>
   <?php
+    $showdiv=false;
+
   $alert_logo = '<svg class="svg-inline--fa fa-exclamation-circle fa-w-16 rounded-full fill-current text-4xl" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="exclamation-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"></path></svg>';
   if (isset($_SESSION['status'])) {
-    // echo "logset";
-    $showdiv=true;
-    
     if ($_SESSION['status'] == 'confail') {
       $alert_title = 'Sorry ! ';
       $alert_message = "Can't Connect to server now.";
       $alert_bg = 'bg-yellow-200';
       $alert_fg = 'text-yellow-600';
+    $showdiv=true;
+
     } elseif ($_SESSION['status'] == 'nouser') {
       $alert_title = 'No User ! ';
       $alert_message = "Sorry No such user found, Please Sign Up.";
       $alert_bg = 'bg-red-200';
-      $alert_fg = 'text-red-500';
+    $showdiv=true;
+    $alert_fg = 'text-red-500';
     } elseif ($_SESSION['status'] == 'wrongpw') {
       $alert_title = 'Wrong Password ! ';
       $alert_message = "You have entered Wrong Password, Click on forgot password to reset it.";
       $alert_bg = 'bg-red-200';
-      $alert_fg = 'text-red-500';
+    $showdiv=true;
+    $alert_fg = 'text-red-500';
     } elseif ($_SESSION['status'] == 'dupliuser') {
       $alert_title = 'Error ! ';
       $alert_message = "Duplicate user dected.";
       $alert_bg = 'bg-red-200';
-      $alert_fg = 'text-red-500';
+    $showdiv=true;
+    $alert_fg = 'text-red-500';
     } elseif ($_SESSION['status'] == 'wrongway') {
       $alert_title = 'Wait ? ';
       $alert_message = "You can't Cheat us !";
       $alert_bg = 'bg-red-200';
-      $alert_fg = 'text-red-500';
+    $showdiv=true;
+    $alert_fg = 'text-red-500';
     }else{
       $showdiv=false;
     };
-  }elseif(isset($_SESSION['supstatus'])){
-    // echo 'signupset';
-    // echo $_SESSION['supstatus'];
+  };
+  if(isset($_SESSION['supstatus'])){
     if($_SESSION['supstatus'] == 'confail'){
       $alert_title = 'Sorry ! ';
       $alert_message = "Can't Connect to server now.";
       $alert_bg = 'bg-yellow-200';
-      $alert_fg = 'text-yellow-600';
+    $showdiv=true;
+    $alert_fg = 'text-yellow-600';
     } elseif ($_SESSION['supstatus'] == 'signupsucess') {
       $alert_title = 'You have sucessfully signed up';
       $alert_message = "Welcome to our community! Now login with your details.";
       $alert_bg = 'bg-green-200';
-      $alert_fg = 'text-green-500';
+    $showdiv=true;
+    $alert_fg = 'text-green-500';
       // <path class="st0" d=""/>
       $alert_logo = '<svg class="svg-inline--fa fa-exclamation-circle fa-w-16 rounded-full fill-current text-4xl" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="exclamation-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 650" data-fa-i2svg="">
       <path fill="currentColor" d="M562,396c0-141.4-114.6-256-256-256S50,254.6,50,396s114.6,256,256,256S562,537.4,562,396L562,396z    M501.7,296.3l-241,241l0,0l-17.2,17.2L110.3,421.3l58.8-58.8l74.5,74.5l199.4-199.4L501.7,296.3L501.7,296.3z"></path>
       </svg>';
-  
     }elseif ($_SESSION['supstatus'] == 'alreadyuser') {
       $alert_title = 'Wait ! ';
       $alert_message = "This Email already exists. You can login. Click on forgot password link if you have forgotten the password.";
       $alert_bg = 'bg-red-200';
       $alert_fg = 'text-red-500';
+      $showdiv=true;
+
     }elseif ($_SESSION['supstatus'] == 'wrongway') {
       $alert_title = 'Wait ? ';
       $alert_message = "You can't Cheat us !";
       $alert_bg = 'bg-red-200';
       $alert_fg = 'text-red-500';
+      $showdiv=true;
+
     }else{
       $alert_title = 'Error ? ';
       $alert_message = "Something went wrong Try again!";
       $alert_bg = 'bg-red-200';
       $alert_fg = 'text-red-500';
+      $showdiv=true;
+
     };
+  }
+  if (isset($_SESSION['fstatus'])){
+    if ($_SESSION['fstatus'] == "fsucess"){
+      $alert_title = 'Sucess ';
+      $alert_message = "You have Reseted your account password! Now login with your details.";
     $showdiv=true;
+    $alert_bg = 'bg-green-200';
+      $alert_fg = 'text-green-500';
+      $alert_logo = '<svg class="svg-inline--fa fa-exclamation-circle fa-w-16 rounded-full fill-current text-4xl" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="exclamation-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 650" data-fa-i2svg="">
+      <path fill="currentColor" d="M562,396c0-141.4-114.6-256-256-256S50,254.6,50,396s114.6,256,256,256S562,537.4,562,396L562,396z    M501.7,296.3l-241,241l0,0l-17.2,17.2L110.3,421.3l58.8-58.8l74.5,74.5l199.4-199.4L501.7,296.3L501.7,296.3z"></path>
+      </svg>';
+    }
+
+  }
+  if(isset($_SESSION['status'])){
+    unset($_SESSION['status']);
+  }elseif(isset($_SESSION['supstatus'])){
+    unset($_SESSION['supstatus']);
+  }elseif(isset($_SESSION['fstatus']) and ($_SESSION['fstatus'] == "fsucess")){
+    unset($_SESSION['fstatus']);
   }else{
     // echo 'first';
     $showdiv=false;
     // $divdata = '';
   }
-  if ($showdiv){
+  if ($showdiv==true){
     ?>
       <div id="alertwarn"  class="bg-opacity-70 m-auto md:w-3/5 bg-white my-2 rounded-lg px-4 <?=$alert_bg?>">
       <div class="flex items-center py-4 justify-evenly">
@@ -109,7 +139,7 @@ include('php/whichbtn.php');
               <p class="<?=$alert_fg?> my-0"><?=$alert_message?></p>
           </div>
           <div>
-              <button type="button"  onClick="hide(\'alertwarn\')"  class="leavethis <?=$alert_fg?>">
+              <button type="button"  onClick="hide('alertwarn')"  class="leavethis <?=$alert_fg?>">
                   <span class="text-2xl">&times;</span>
               </button>
           </div>
@@ -142,10 +172,10 @@ include('php/whichbtn.php');
             <input name="lmail" type="email" placeholder="Email Address" required>
           </div>
           <div class="field">
-            <input name="lpass" type="password" placeholder="Password" required>
+            <input name="lpass" type="password"  placeholder="Password" required>
           </div>
           <div class="pass-link">
-            <a href="#">Forgot password?</a>
+            <a href="/passwordreset.php">Forgot password?</a>
           </div>
           <div class="field btn">
             <div class="btn-layer">
@@ -164,7 +194,7 @@ include('php/whichbtn.php');
           </div>
 
           <div class="field flex" id="passdiv">
-            <input id="password" name="spassword" type="password" onkeyup="checkpass()" placeholder="Password" required>
+            <input id="password" name="spassword" type="password" onkeyup=checkpass() placeholder="Password" required>
             <span class="m-2 align-middle	tooltip" id='validmessage'></span>
             <!-- <span class="tooltiptext">Tooltip text</span> -->
           </div>
@@ -193,8 +223,10 @@ include('php/whichbtn.php');
 whichform = sessionStorage.getItem('openform');
 if(whichform=='login'){
   document.querySelector('label.login').click()
-}else{
+}else if(whichform=='signup'){
   document.querySelector('label.signup').click()
+}else{
+  document.querySelector('label.login').click()
 }
     
   </script>

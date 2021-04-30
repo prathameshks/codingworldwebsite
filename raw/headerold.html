@@ -1,0 +1,194 @@
+<div class="overlay">
+
+    <header class="text-gray-600 body-font bg-white">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-black mb-4 md:mb-0" href="/">
+                <img class="logo" src="images/logo.png" alt="Logo" />
+                <span class="ml-3 text-xl">Code World</span>
+            </a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-black text-base justify-center">
+                <a href="/" id="home" class="mr-5 hover:text-gray-900">Home</a>
+                <a href="tutorials.php" id="tutorials" class="mr-5 hover:text-gray-900">Tutorials</a>
+                <a href="projects.php" id="projects" class="mr-5 hover:text-gray-900">Projects</a>
+                <a href="contact.php" id="contact" class="mr-5 hover:text-gray-900">About & Contact</a>
+            </nav>
+            <div class="w-10 h-auto relative" id='profilebtn'>
+                <!-- Dropdown toggle button onmouseout=hideavtarinfo() onmouseover=showavtarinfo()-->
+                <button id='avtar' onclick=showavtarinfo()
+                    class="w-full h-full z-10 block  bg-white rounded-md dark:bg-gray-800 focus:outline-none">
+                    <svg class="w-1/6 h-auto h-5 text-gray-800 dark:text-white" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 48 48" fill="currentColor">
+                        <g id="Padding__x26__Artboard"/><g id="Icons">
+                            <g>
+                            <circle cx="24" cy="24" r="15.34377" style="fill:#FFFFFF;"/>
+                            <path d="M37.09991,25.12c0,7.67999-6.07001,13.92999-13.67999,14.20996    c-8.01001-0.29999-14.45001-6.73999-14.75-14.75c0.27997-7.60999,6.52997-13.67999,14.20996-13.67999    C30.73993,10.89996,37.09991,17.26001,37.09991,25.12z" style="fill:#659BDB;"/>
+                            <circle cx="24" cy="24" r="12.93885" style="fill:#B9D4F8;"/>
+                            <path d="    M39.3399,24c0,8.46997-6.87,15.33997-15.34003,15.33997c-0.19,0-0.38995,0-0.57996-0.01001    c-8.01001-0.29999-14.45001-6.73999-14.75-14.75C8.65991,24.39001,8.65991,24.19,8.65991,24    c0-8.47003,6.87-15.34003,15.33997-15.34003C32.46991,8.65997,39.3399,15.52997,39.3399,24z" style="fill:none;stroke:#1B4A9A;stroke-width:0.7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/>
+                            <ellipse cx="24" cy="21.06503" rx="4.28224" ry="4.39593" style="fill:#FFFFFF;"/>
+                            <ellipse cx="23.55572" cy="21.5211" rx="3.83796" ry="3.93986" style="fill:#B9D4F8;"/>
+                            <path d="M31.66003,31.3309c0-2.35405-2.19146-4.2801-4.48463-4.2801h-6.3508    c-2.29317,0-4.48463,1.92604-4.48463,4.2801v0.4665h15.32006V31.3309z" style="fill:#FFFFFF;"/>
+                            <path d="M29.73159,31.34606c0-2.27755-1.91561-4.141-3.92012-4.141h-5.55138    c-2.00451,0-3.92012,1.86345-3.92012,4.141v0.45134h13.39162V31.34606z" style="fill:#B9D4F8;"/>
+                            <ellipse cx="24" cy="21.06503" rx="3.39368" ry="3.48378" style="fill:#659BDB;"/>
+                            <path d="M27.39368,31.36756c0-2.16906-1.58118-3.94375-3.23574-3.94375h-4.58222    c-1.65457,0-3.23575,1.77468-3.23575,3.94375v0.42984h11.05371V31.36756z" style="fill:#659BDB;"/>
+                            <path d="    M21.45114,11.57075c0.53679-0.09549,1.07644-0.1576,1.61342-0.18429" style="fill:none;stroke:#1B4A9A;stroke-width:0.7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/>
+                            <path d="    M15.02626,14.75953c1.44125-1.2413,3.22635-2.35482,5.10565-2.8855" style="fill:none;stroke:#1B4A9A;stroke-width:0.7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/>
+                            <circle cx="24" cy="21.01823" r="4.46602" style="fill:none;stroke:#1B4A9A;stroke-width:0.7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/>
+                            <path d="    M16.33997,31.44779c0-2.39159,1.95675-4.34834,4.34834-4.34834h6.62337c2.39159,0,4.34834,1.95675,4.34834,4.34834    L16.33997,31.44779z" style="fill:none;stroke:#1B4A9A;stroke-width:0.7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/>
+                            </g></g>
+                    </svg>
+                </button>
+
+                <!-- Dropdown menu -->
+                <div id="avtardrop"
+                    class=" avtardrop hidden border-2 border-gray-200 absolute right-0 z-20 w-48 py-2 mt-2 bg-white rounded-md shadow-xl dark:bg-gray-800">
+                    <div class="bg-gray-100 m-2">
+                        <a href="<?php 
+                        if(isset($_SESSION['status']) && ($_SESSION['status']=='loggedin')){
+                            echo '/logout.php';
+                            }else{
+                                echo '/login.php';
+                            }
+                        ?>
+                        " onclick="setopenform('login')"
+                            class="inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 w-full md:mt-0">
+                            <?php 
+                            if(isset($_SESSION['status']) && ($_SESSION['status']=='loggedin')){
+                                echo 'Logout';
+                                }else{
+                                    echo 'Login';
+                                }
+                                ?>
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <?php
+                    if(isset($_SESSION['status']) && ($_SESSION['status']=='loggedin')){
+                        echo "/profile.php";
+                        ?>
+                    <div class="bg-gray-100 m-2">
+                        <a href="/profile.php"
+                            class="w-full inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 w-full md:mt-0">
+                            Profile
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <?php
+                    }else{
+                        echo '/login.php';
+                        ?>
+                    <div class="bg-gray-100 m-2">
+                        <a href="/login.php" onclick="setopenform('signup')"
+                            class="inline-flex items-center border-0 py-1 px-3 focus:outline-none w-full hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+                            Sign Up
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <div class="searchbtndiv p-4 m-1">
+                <button class="searchbtn">
+                    <svg class="fill-current pointer-events-none text-grey-darkest w-4 h-4 inline"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path
+                            d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <div class="dark-mode-switch">
+
+                <input id="dark-mode" type="checkbox"
+                    onclick="document.documentElement.classList.toggle('dark-mode'),modefun()">
+                <label for="dark-mode"></label>
+
+            </div>
+        </div>
+    </header>
+    <script>
+        window.onload = function(){
+            var hideMe = document.getElementById('avtardrop');
+            document.onclick = function(e){
+               console.console.log(e.target.id);
+               if(e.target.id !== 'profilebtn'){
+                  hideMe.classList.add('hidden');
+               }
+            };
+         };
+    </script>
+    <script type="text/javascript">
+        var alshownin = 'no';
+        sessionStorage.setItem("divwin", 'no');
+
+        function setopenform(which) {
+            sessionStorage.setItem("openform", which);
+        }
+        function hide(obj) {
+
+            var el = document.getElementById(obj);
+
+            el.remove();
+
+        }
+        function showavtarinfo() {
+            alshownin = sessionStorage.getItem("divwin");
+            if (alshownin='no') {
+                avtardrop = document.getElementById('avtardrop');
+                avtardrop.classList.remove("hidden");
+                avtardrop.classList.add
+                var alshownin = 'yes';
+                sessionStorage.setItem("divwin", 'yes');
+                try {
+                    hide('alertwarn');
+                } catch {
+                    // console.log('noalert');
+                };
+                try {
+                    hide('messagediv');
+                } catch {
+                    // console.log('noalert')
+                };
+            } else {
+                var alshownin = 'no';
+                sessionStorage.setItem("divwin", 'no');
+                hideavtarinfo();
+            }
+        }
+        function hideavtarinfo() {
+                avtardrop = document.getElementById('avtardrop');
+                avtardrop.classList.add("hidden");
+        }
+        function modefun() {
+            var elmt = document.getElementById('dark-mode');
+            var value = elmt.checked;
+            if (value == true) {
+                sessionStorage.setItem("mode", 'dark');
+            } else {
+                sessionStorage.setItem("mode", 'light');
+            }
+
+        }
+        var mode = sessionStorage.getItem("mode");
+        if (mode == 'dark') {
+            document.getElementById('dark-mode').click();
+        } else {
+            sessionStorage.setItem("mode", 'light');
+        }
+    </script>
+    <hr bg-gray-300>
+
+    <!-- <!DOCTYPE html><html lang="en"><head><title>Login</title></head><body>
+    
+</body></html> -->
