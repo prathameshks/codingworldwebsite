@@ -1,4 +1,3 @@
-
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 <div class="overlay">
 
@@ -39,10 +38,11 @@ if (mysqli_connect_errno()) {
         foreach($rows as $row){
             $content = $row[0];
             ?>
-            <a href="/tutorials.php?course=<?php echo $content;?>" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
-                <?=ucwords($content);?>
-            </a>
-        <?php
+                <a href="/tutorials.php?course=<?php echo $content;?>"
+                    class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                    <?=ucwords($content);?>
+                </a>
+                <?php
         };
         echo '</div>
         </div>
@@ -55,89 +55,106 @@ if (mysqli_connect_errno()) {
                 <a href="contact.php" id="contact" class="mr-5 hover:text-gray-900">About & Contact</a>
                 <div onclick="hidemessage()" class="flex justify-center h-auto">
                     <div x-data="{ dropdownOpen: false }" class="relative">
-                      <button @click="dropdownOpen = !dropdownOpen" class="content-around flex relative z-10 block rounded-md bg-white p-2 focus:outline-none">
-                        <img src="images/user.svg" class="w-8"/>
-                        <svg class="h-5 w-5 align-middle pt-2 text-gray-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                      </button>
-                    
-                      <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
-                    
-                      <div x-show="dropdownOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
-                        <a href="<?php 
+                        <button @click="dropdownOpen = !dropdownOpen"
+                            class="content-around flex relative z-10 block rounded-md bg-white p-2 focus:outline-none">
+                            <img src="images/user.svg" class="w-8" />
+                            <svg class="h-5 w-5 align-middle pt-2 text-gray-800" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+
+                        <div x-show="dropdownOpen" @click="dropdownOpen = false"
+                            class="fixed inset-0 h-full w-full z-10"></div>
+
+                        <div x-show="dropdownOpen"
+                            class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
+                            <a href="<?php 
                         if(isset($_SESSION['status']) && ($_SESSION['status']=='loggedin')){
                             echo '/logout.php';
                             }else{
                                 echo '/login.php';
                             }
                         ?>
-                        " onclick="setopenform('login')" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
-                        <?php 
+                        " onclick="setopenform('login')"
+                                class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                                <?php 
                         if(isset($_SESSION['status']) && ($_SESSION['status']=='loggedin')){
                             echo 'Logout';
                             }else{
                                 echo 'Login';
                             }
                             ?>
-                        </a>
-                        <?php
+                            </a>
+                            <?php
                     if(isset($_SESSION['status']) && ($_SESSION['status']=='loggedin')){
                         
                         ?>
-                        <a href="/profile.php" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
-                            Profile
-                          </a>
-                    
-                    <?php
+                            <a href="/profile.php"
+                                class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                                Profile
+                            </a>
+
+                            <?php
                     }else{
                         ?>
-                        <a href="/login.php" onclick="setopenform('signup')" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
-                            Sign Up
-                          </a>
-                    
-                    <?php
+                            <a href="/login.php" onclick="setopenform('signup')"
+                                class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white">
+                                Sign Up
+                            </a>
+
+                            <?php
                     }
                     ?>
-        
-                      </div>
+
+                        </div>
                     </div>
-                    </div>
-            
-            
-            <div id="searchdiv" onmouseover="monsearch()" style="transition:300ms linear;" onmouseout="mdownsearch()" class="relative text-lg bg-transparent text-gray-800 w-12" >
-                <div class="flex overflow-hidden items-center border-b border-b-2 border-teal-500 py-2">
-                    <form method="GET" action="tutorials.php">
-                  <input name="query" id="searchinput" class="bg-transparent border-none mr-3 px-2 leading-tight focus:outline-none" type="text">
-                  <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
-                    <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve" width="512px" height="512px">
-                        <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"/>
-                    </svg>
-                  </button></form>
                 </div>
-              </div>
+
+
+                <div id="searchdiv" onmouseover="monsearch()" style="transition:300ms linear;"
+                    onmouseout="mdownsearch()" class="relative text-lg bg-transparent text-gray-800 w-12">
+                    <div class="flex overflow-hidden items-center border-b border-b-2 border-teal-500 py-2">
+                        <form method="GET" action="tutorials.php">
+                            <input name="query" id="searchinput"
+                                class="bg-transparent border-none mr-3 px-2 leading-tight focus:outline-none"
+                                type="text">
+                            <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                                <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+                                    viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
+                                    xml:space="preserve" width="512px" height="512px">
+                                    <path
+                                        d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
 
                 <input id="dark-mode" type="checkbox"
                     onclick="document.documentElement.classList.toggle('dark-mode'),modefun()">
                 <label for="dark-mode"></label>
             </nav>
-            
+
         </div>
     </header>
     <script>
-        function monsearch(){
+        function monsearch() {
             var search = document.getElementById('searchdiv')
-            search.style.width="200px"
+            search.style.width = "200px"
             var searchinput = document.getElementById('searchinput')
-            searchinput.setAttribute('placeholder',"Search")
-            placeholder="Search"
+            searchinput.setAttribute('placeholder', "Search")
+            placeholder = "Search"
             console.log('mouse on')
         }
-        function mdownsearch(){
+        function mdownsearch() {
             var search = document.getElementById('searchdiv')
-            search.style.width="48px"
+            search.style.width = "48px"
             var searchinput = document.getElementById('searchinput')
-            searchinput.setAttribute('placeholder'," ")
+            searchinput.setAttribute('placeholder', " ")
             console.log('mouse down')
         }
     </script>
@@ -156,23 +173,23 @@ if (mysqli_connect_errno()) {
 
         }
         function hidemessage() {
-            
-                try {
-                    hide('alertwarn');
-                } catch {
-                    // console.log('noalert');
-                };
-                try {
-                    hide('messagediv');
-                } catch {
-                    // console.log('noalert')
-                };
-            
-            }
-        
+
+            try {
+                hide('alertwarn');
+            } catch {
+                // console.log('noalert');
+            };
+            try {
+                hide('messagediv');
+            } catch {
+                // console.log('noalert')
+            };
+
+        }
+
         function hideavtarinfo() {
-                avtardrop = document.getElementById('avtardrop');
-                avtardrop.classList.add("hidden");
+            avtardrop = document.getElementById('avtardrop');
+            avtardrop.classList.add("hidden");
         }
         function modefun() {
             var elmt = document.getElementById('dark-mode');
