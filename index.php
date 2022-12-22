@@ -128,8 +128,11 @@ if(isset($_SESSION['userid'])){
           This is the official website of <b>CODE WORLD</b> YouTube channel. You will get all videos links, their source code, Project,s project ideas and much more...<br><i>Search and learn!</i>
         </p>
         <div class="flex justify-center">
-          <button class="leavethis inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Tutorials</button>
-          <button class="leavethis ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Projects</button>
+          <a href="/tutorials.php">
+
+            <button class="leavethis inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Tutorials</button>
+          </a>
+          <!-- <button class="leavethis ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Projects</button> -->
         </div>
       </div>
       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">

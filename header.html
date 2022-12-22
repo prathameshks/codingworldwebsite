@@ -10,7 +10,9 @@
             <nav class="md:ml-auto flex flex-wrap items-center text-black text-base justify-center">
                 <a href="/" id="home" class="mr-5 hover:text-gray-900">Home</a>
                 <?php
-$con = mysqli_connect("localhost","root","","userdata");
+include('php/db.php');
+
+//$con = mysqli_connect("localhost","root","","userdata");
 // Check connection
 if (mysqli_connect_errno()) {
     echo '<a href="tutorials.php" id="tutorials" class="mr-5 hover:text-gray-900">Tutorials</a>';
@@ -51,7 +53,7 @@ if (mysqli_connect_errno()) {
     }
 }
 ?>
-                <a href="projects.php" id="projects" class="mr-5 hover:text-gray-900">Projects</a>
+                <!-- <a href="projects.php" id="projects" class="mr-5 hover:text-gray-900">Projects</a> -->
                 <a href="contact.php" id="contact" class="mr-5 hover:text-gray-900">About & Contact</a>
                 <div onclick="hidemessage()" class="flex justify-center h-auto">
                     <div x-data="{ dropdownOpen: false }" class="relative">

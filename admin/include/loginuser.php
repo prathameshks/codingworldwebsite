@@ -1,6 +1,8 @@
 <?php
 session_start();
-$con = mysqli_connect("localhost","root","","userdata");
+include('db.php');
+
+// $con = mysqli_connect("localhost","root","","userdata");
 if(!$con){
     $_SESSION['loginstatus']="connfail";
     header("location:/admin/login.php");

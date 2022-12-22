@@ -1,6 +1,8 @@
 <?php
 session_start();
-$con = mysqli_connect("localhost", "root", "", "userdata");
+include('include/db.php');
+
+// $con = mysqli_connect("localhost", "root", "", "userdata");
 if (isset($_SESSION['userid'])) {
 ?>
     <!DOCTYPE html>
@@ -23,6 +25,7 @@ if (isset($_SESSION['userid'])) {
         include("include/navbar.php");
         ?>
         <div id="layoutSidenav">
+            <!-- <a href="../php/db.php">php</a> -->
             <div id="layoutSidenav_content">
                 <main>
                     <?php

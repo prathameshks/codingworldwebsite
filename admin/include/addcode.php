@@ -1,6 +1,8 @@
 <?php
 session_start();
-$con=mysqli_connect("localhost","root","","userdata");
+include('db.php');
+
+// $con=mysqli_connect("localhost","root","","userdata");
 if(isset($_POST['submit'])){
     $vid=$_POST['vid'];
     $language=$_POST['language'];

@@ -1,5 +1,6 @@
 <?php
-$con = mysqli_connect("localhost","root","","userdata");
+include('db.php');
+
 // Check connection
 if (mysqli_connect_errno()) {
 }else{

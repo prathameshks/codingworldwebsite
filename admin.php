@@ -11,7 +11,9 @@
     <title>Admin CodeWorld</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <a href="/">
+      <h1>HOME</h1>
+    </a>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

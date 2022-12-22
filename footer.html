@@ -15,20 +15,7 @@
         <a href="/">
           <h2 class="title-font font-medium text-black tracking-widest text-sm mb-3">HOME</h2>
         </a>
-        <nav class="list-none mb-10">
-          <li>
-            <a href="/#introduction" class="text-gray-600 hover:text-gray-800">Introduction</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-          </li>
-        </nav>
+
       </div>
       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
         <a href="/tutorials.php">
@@ -36,7 +23,9 @@
         </a>
         <nav class="list-none mb-10">
           <?php
-$con = mysqli_connect("localhost","root","","userdata");
+include('php/db.php');
+
+//$con = mysqli_connect("localhost","root","","userdata");
 // Check connection
 if (mysqli_connect_errno()) {
     echo '<a href="tutorials.php" id="tutorials" class="mr-5 hover:text-gray-900">Tutorials</a>';
@@ -65,43 +54,17 @@ if (mysqli_connect_errno()) {
 ?>
         </nav>
       </div>
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+      <!-- <div class="lg:w-1/4 md:w-1/2 w-full px-4">
         <a href="/projects.php">
           <h2 class="title-font font-medium text-black tracking-widest text-sm mb-3">PROJECTS</h2>
         </a>
-        <nav class="list-none mb-10">
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">First Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-          </li>
-        </nav>
-      </div>
+
+      </div> -->
       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
         <a href="contact.php">
           <h2 class="title-font font-medium text-black tracking-widest text-sm mb-3">ABOUT & CONTACT</h2>
         </a>
-        <nav class="list-none mb-10">
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">First Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-          </li>
-        </nav>
+
       </div>
     </div>
   </div>

@@ -4,8 +4,9 @@ session_start();
 //userdata create  tabel code
 //userdata insert
 //$sql = "INSERT INTO `userdata`(`name`, `email`, `pass`, `usertype`) VALUES (\'admin_name\',\'admin@codeworld\',\'admin\',1)";
+include('php/db.php');
 
-$con = mysqli_connect("localhost","root","","userdata");
+// $con = mysqli_connect("localhost","root","","userdata");
 // Check connection
 if (mysqli_connect_errno()) {
   $_SESSION['supstatus']= "confail";
